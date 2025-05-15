@@ -8,6 +8,5 @@ export const headerData = {
     { text: "Parcours", link: "#career", icon: "fas fa-briefcase" },
     { text: "Portfolio", link: "#portfolio", icon: "fas fa-code" },
     { text: "LinkedIn", link: "#linkedin-posts", icon: "fab fa-linkedin" },
-    { text: "Contact", link: "#contact", icon: "fas fa-envelope" },
   ],
 };
