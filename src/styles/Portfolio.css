@@ -1,0 +1,194 @@
+/* Portfolio.css */
+.portfolio {
+  & .portfolio-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  & .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  & .project-card {
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+
+    &.in-view {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    &:nth-child(even).in-view {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3n).in-view {
+      animation-delay: 0.4s;
+    }
+
+    & .project-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+
+      .active & {
+        transform: rotateY(180deg);
+      }
+    }
+
+    & .project-front,
+    & .project-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      padding: var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    & .project-front {
+      background-color: var(--bg-card);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            135deg,
+            rgba(0, 188, 212, 0.05) 0%,
+            transparent 50%
+          ),
+          linear-gradient(225deg, rgba(124, 77, 255, 0.05) 0%, transparent 50%);
+        z-index: -1;
+      }
+    }
+
+    & .project-back {
+      background-color: var(--bg-card);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid rgba(100, 255, 218, 0.3);
+    }
+
+    & .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--spacing-md);
+    }
+
+    & .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    & .project-status {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background-color: rgba(124, 77, 255, 0.2);
+      color: var(--secondary-color);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    & .project-preview {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    & .project-image {
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-sm);
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .project-card:hover & img {
+        transform: scale(1.05);
+      }
+    }
+
+    & .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+
+      & .tech-badge {
+        padding: 0.25rem 0.5rem;
+        background-color: rgba(0, 188, 212, 0.1);
+        color: var(--primary-color);
+        border-radius: var(--border-radius-sm);
+        font-size: 0.75rem;
+        font-family: var(--font-secondary);
+      }
+    }
+
+    & .project-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    & .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      padding: 0.5rem 1.5rem;
+      background-color: var(--primary-color);
+      color: var(--text-dark);
+      text-decoration: none;
+      border-radius: var(--border-radius-md);
+      font-weight: 500;
+      transition: all var(--transition-fast);
+
+      &:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+      }
+
+      & i {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

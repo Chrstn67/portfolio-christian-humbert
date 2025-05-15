@@ -1,0 +1,62 @@
+/* Hobbies.css */
+.hobbies {
+  & .hobbies-content {
+    padding: var(--spacing-lg);
+  }
+
+  & .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+
+    & .hobby-card {
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(26, 26, 46, 0.5);
+      border-radius: var(--border-radius-md);
+      padding: var(--spacing-md);
+      transition: all var(--transition-fast);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+      height: 100%;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+        border-color: rgba(100, 255, 218, 0.3);
+      }
+
+      & .hobby-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(124, 77, 255, 0.1);
+        color: var(--secondary-color);
+        border-radius: 50%;
+        margin-bottom: var(--spacing-md);
+
+        & i {
+          font-size: 1.5rem;
+        }
+      }
+
+      & .hobby-details {
+        flex: 1;
+
+        & h3 {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: var(--text-primary);
+          margin: 0 0 0.5rem;
+        }
+
+        & p {
+          font-size: 0.9rem;
+          color: var(--text-secondary);
+          margin: 0;
+        }
+      }
+    }
+  }
+}
