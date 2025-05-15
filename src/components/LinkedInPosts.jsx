@@ -18,7 +18,7 @@ function LinkedInPosts() {
   return (
     <section className="linkedin-posts" id="linkedin-posts">
       <div className="section-header">
-        <h2 className="section-title">Mes Posts LinkedIn</h2>
+        <h2 className="section-title">Mes Meilleurs Posts LinkedIn</h2>
         <div className="section-decoration">
           <div className="hexagon"></div>
           <div className="line"></div>
@@ -71,8 +71,22 @@ function LinkedInPosts() {
               </div>
 
               <div className="post-footer">
-                <div className="post-views">
-                  <i className="fas fa-eye"></i> {post.views}
+                <div className="post-stats">
+                  {post.views && (
+                    <div className="post-views">
+                      <i className="fas fa-eye"></i> {post.views}
+                    </div>
+                  )}
+                  {post.likes && (
+                    <div className="post-likes">
+                      <i className="fas fa-thumbs-up"></i> {post.likes}
+                    </div>
+                  )}
+                  {post.shares && (
+                    <div className="post-shares">
+                      <i className="fas fa-retweet"></i> {post.shares}
+                    </div>
+                  )}
                 </div>
 
                 <a

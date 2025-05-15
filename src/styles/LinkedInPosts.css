@@ -106,17 +106,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
 
-    & .post-likes {
+    & .post-stats {
+      margin-bottom: 16px;
       display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
+      gap: var(--spacing-md);
 
-      & i {
-        color: var(--accent-color);
-        font-size: 1.1rem;
+      & .post-views,
+      & .post-likes,
+      & .post-shares {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+
+        & i {
+          color: var(--accent-color);
+          font-size: 1.1rem;
+        }
       }
     }
 
