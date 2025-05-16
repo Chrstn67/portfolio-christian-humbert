@@ -1,51 +1,79 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { heroData } from "../data/heroData"
-import "../styles/HeroSection.css"
+import { useEffect, useRef, useState } from "react";
+import { heroData } from "../data/heroData";
+import "../styles/HeroSection.css";
 
 function HeroSection() {
-  const terminalRef = useRef(null)
+  const terminalRef = useRef(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const terminal = terminalRef.current
-    const text = heroData.terminalText
-    const i = 0
-    let isDeleting = false
-    let currentLine = 0
-    let txt = ""
-    let typeSpeed = 50
+    // Indiquer que le composant est monté
+    setIsMounted(true);
+
+    const terminal = terminalRef.current;
+    if (!terminal) return;
+
+    const text = heroData.terminalText;
+    let isDeleting = false;
+    let currentLine = 0;
+    let txt = "";
+    let typeSpeed = 50;
 
     const type = () => {
-      const fullLine = text[currentLine]
+      if (!terminalRef.current) return; // Vérifier que la référence existe toujours
+
+      const fullLine = text[currentLine];
 
       if (isDeleting) {
-        txt = fullLine.substring(0, txt.length - 1)
-        typeSpeed = 30
+        txt = fullLine.substring(0, txt.length - 1);
+        typeSpeed = 30;
       } else {
-        txt = fullLine.substring(0, txt.length + 1)
-        typeSpeed = 70
+        txt = fullLine.substring(0, txt.length + 1);
+        typeSpeed = 70;
       }
 
-      terminal.innerHTML = `<span class="terminal-prompt">$ </span>${txt}<span class="cursor">|</span>`
+      if (terminalRef.current) {
+        terminalRef.current.innerHTML = `<span class="terminal-prompt">$ </span>${txt}<span class="cursor">|</span>`;
+      }
 
       if (!isDeleting && txt === fullLine) {
-        typeSpeed = 1000
-        isDeleting = true
+        typeSpeed = 1000;
+        isDeleting = true;
       } else if (isDeleting && txt === "") {
-        isDeleting = false
-        currentLine = (currentLine + 1) % text.length
-        typeSpeed = 500
+        isDeleting = false;
+        currentLine = (currentLine + 1) % text.length;
+        typeSpeed = 500;
       }
 
-      setTimeout(type, typeSpeed)
+      const timer = setTimeout(type, typeSpeed);
+      return () => clearTimeout(timer);
+    };
+
+    // Démarrer l'animation seulement si le composant est monté
+    let timer;
+    if (isMounted) {
+      timer = setTimeout(type, 1000);
     }
 
-    setTimeout(type, 1000)
-  }, [])
+    // Nettoyer les timeouts lors du démontage
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [isMounted]);
+
+  // Nettoyer lors du démontage du composant
+  useEffect(() => {
+    return () => {
+      setIsMounted(false);
+    };
+  }, []);
 
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="home">
       <div className="hero-content">
         <div className="terminal-window">
           <div className="terminal-header">
@@ -72,7 +100,13 @@ function HeroSection() {
           <p>{heroData.subtitle}</p>
           <div className="hero-buttons">
             {heroData.buttons.map((button, index) => (
-              <a key={index} href={button.link} className={`hero-button ${button.primary ? "primary" : "secondary"}`}>
+              <a
+                key={index}
+                href={button.link}
+                className={`hero-button ${
+                  button.primary ? "primary" : "secondary"
+                }`}
+              >
                 {button.text}
               </a>
             ))}
@@ -91,7 +125,7 @@ function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default HeroSection
+export default HeroSection;

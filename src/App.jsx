@@ -11,6 +11,7 @@ import Portfolio from "./components/Portfolio";
 import LinkedInPosts from "./components/LinkedInPosts";
 import Footer from "./components/Footer";
 import ParticlesBackground from "./components/ParticlesBackground";
+import ScrollToTop from "./components/ScrollToTop";
 import "./styles/App.css";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <LinkedInPosts />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
