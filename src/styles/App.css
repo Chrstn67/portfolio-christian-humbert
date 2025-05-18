@@ -189,16 +189,16 @@ body {
     grid-row: 1;
   }
 
-  & .education-section {
+  & .hobbies-section {
     grid-column: 1 / 13;
     grid-row: 2;
   }
-
-  & .career-section {
+  & .education-section {
     grid-column: 1 / 13;
     grid-row: 3;
   }
-  & .hobbies-section {
+
+  & .career-section {
     grid-column: 1 / 13;
     grid-row: 4;
   }
@@ -262,12 +262,11 @@ body {
     & .other-info-section {
       grid-row: 2;
     }
-
-    & .education-section {
+    & .hobbies-section {
       grid-row: 3;
     }
 
-    & .hobbies-section {
+    & .education-section {
       grid-row: 4;
     }
 
