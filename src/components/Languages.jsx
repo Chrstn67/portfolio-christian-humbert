@@ -1,5 +1,5 @@
-import { languagesData } from "../data/languagesData"
-import "../styles/Languages.css"
+import { languagesData } from "../data/languagesData";
+import "../styles/Languages.css";
 
 function Languages() {
   return (
@@ -16,7 +16,7 @@ function Languages() {
       <div className="languages-content">
         <div className="languages-grid">
           {languagesData.languages.map((language, index) => (
-            <div key={index} className="language-card">
+            <div key={index} className="language-card" title={language.popup}>
               <div className="language-header">
                 <h3>{language.name}</h3>
               </div>
@@ -28,7 +28,7 @@ function Languages() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Languages
+export default Languages;

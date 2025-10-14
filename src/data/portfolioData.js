@@ -27,6 +27,15 @@ export const portfolioData = {
       image: "./images-projets/PaleoData.png",
       status: "V3 EN COURS",
     },
+    {
+      title: "Planimation",
+      description:
+        "Outils pratique pour réalisre l'emploi du temps des animateurs et concevoir les fiches d'animations !",
+      technologies: "ViteJS",
+      link: "https://chrstn67.github.io/planimation/",
+      image: "./images-projets/Planimation.png",
+      // status: "V3 EN COURS",
+    },
     // {
     //   title: "Questions pour un Champion",
     //   description:

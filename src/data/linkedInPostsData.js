@@ -25,7 +25,7 @@ export const linkedInPostsData = {
       excerpt:
         "Pour comprendre l'histoire de ce site et par extension, 𝘐𝘯𝘵𝘦𝘳𝘯𝘦𝘵, je te propose un petit voyage dans le temps",
       category: "hist",
-      views: 37500,
+      views: 27500,
       likes: 281,
       shares: 32,
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7302643997934518273/",
@@ -51,6 +51,15 @@ export const linkedInPostsData = {
       likes: 50,
       shares: 6,
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7327722942325223425/",
+    },
+    {
+      title: "C'est quoi la différence entre les trois ?",
+      excerpt: "L'𝐚𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦𝐢𝐞, la 𝐩𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧 et le 𝐝𝐞́𝐯𝐞𝐥𝐨𝐩𝐩𝐞𝐦𝐞𝐧𝐭",
+      category: "education",
+      views: 20000,
+      likes: 22,
+
+      link: "https://www.linkedin.com/feed/update/urn:li:activity:7375189489566265344/",
     },
   ],
 };

@@ -12,11 +12,6 @@ export const heroData = {
   ],
   buttons: [
     {
-      text: "Voir mon portfolio",
-      link: "#portfolio",
-      primary: true,
-    },
-    {
       text: "Me contacter",
       link: "https://www.linkedin.com/in/christian-humbert-developpeur-web/",
       primary: false,

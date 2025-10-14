@@ -101,6 +101,7 @@ function HeroSection() {
           <div className="hero-buttons">
             {heroData.buttons.map((button, index) => (
               <a
+                target="_blank"
                 key={index}
                 href={button.link}
                 className={`hero-button ${
