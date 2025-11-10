@@ -1,7 +1,7 @@
 export const careerData = {
   items: [
     {
-      period: "Depuis 2025, vacances scolaires",
+      period: "2025, vacances scolaires - Présent",
       title: "Animateur au Service Animation Jeunes, Molsheim",
       skills: ["Travail d'équipe", "Mise en place et animation des activités"],
     },
@@ -18,7 +18,7 @@ export const careerData = {
         "CSS",
         "JS",
         "React",
-        "Symfony (PHP)",
+        "Supabase",
         "Makdown (Obsidian, Docusaurus)",
       ],
     },
